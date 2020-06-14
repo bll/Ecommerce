@@ -1,0 +1,44 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+    <link href="~/css/theme.css" rel="stylesheet" />
+<h1>Product List</h1>
+
+<div class="container mydiv">
+    <div class="row">
+        @foreach (var item in Model.Products) {
+
+            <div class="col-md-4">
+                <!-- bbb_deals -->
+                <div class="bbb_deals">
+                    <div class="ribbon ribbon-top-right"><span>10% OFF</span></div>
+                    <div class="bbb_deals_title">@item.Barcode</div>
+                    <div class="bbb_deals_slider_container">
+                        <div class=" bbb_deals_item">
+                            <div class="bbb_deals_image">
+                                <a href ="/Products/Detail/@item.Id"> <img src="~/images/@item.Image" alt="@item.Name" title="@item.Name"></a>
+                            </div>
+                            <div class="bbb_deals_content">
+                                <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                    <div class="bbb_deals_item_category"><a href="#">Laptops</a></div>
+                                </div>
+                                <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                                    <div class="bbb_deals_item_name">@item.Name</div>
+                                    <div class="bbb_deals_item_price ml-auto">@item.Price</div>
+                                </div>
+                                <div class="available">
+                                    <div class="available_line d-flex flex-row justify-content-start">
+                                        <div class="available_title">Available: <span>@item.Stock</span></div>
+                                    </div>
+                                    <div class="available_bar"><span style="width:17%"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
